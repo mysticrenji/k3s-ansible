@@ -1,12 +1,6 @@
 # Build a Kubernetes cluster using k3s via Ansible.
 
 > This repository is now part of https://github.com/rancher/k3s official repo in contrib/ansible directory.
-> Anyway I'll write updates in order to make PM in k3s.
-> Be my guest and feel free to contribute.
-
-## My blog post about these bunch of playbooks
-
-Here is my post about [k3s and Ansible provisionning](https://www.it-wars.com/posts/cloud-native/kubernetes-avec-k3s-pour-sauver-la-planete/) (in French)
 
 ## K3s Ansible Playbook
 
