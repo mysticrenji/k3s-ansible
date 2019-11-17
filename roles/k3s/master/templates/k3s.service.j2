@@ -1,16 +1,25 @@
 [Unit]
 Description=Lightweight Kubernetes
 Documentation=https://k3s.io
-After=network.target
+After=network-online.target
+
 [Service]
+Type=notify
+EnvironmentFile=/etc/systemd/system/k3s.service.env
 ExecStartPre=-/sbin/modprobe br_netfilter
 ExecStartPre=-/sbin/modprobe overlay
-ExecStart=/usr/local/bin/k3s server
+ExecStart=/usr/local/bin/k3s \
+    server \
+    --write-kubeconfig-mode 664 \
+
 KillMode=process
 Delegate=yes
 LimitNOFILE=infinity
 LimitNPROC=infinity
 LimitCORE=infinity
 TasksMax=infinity
+TimeoutStartSec=0
+Restart=always
+
 [Install]
 WantedBy=multi-user.target
